@@ -229,8 +229,8 @@ button {
 .maker {
   margin: 32px 0 0;
   font-family: "Pretendard Variable", Pretendard, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(34px, 4.4vw, 58px);
-  font-weight: 850;
+  font-size: clamp(24px, 3.1vw, 40px);
+  font-weight: 650;
   line-height: 1;
 }
 
@@ -566,7 +566,7 @@ button {
   border-left: 4px solid var(--gold);
   border-radius: 0 6px 6px 0;
   background: rgba(255, 255, 255, 0.88);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.4;
   word-break: keep-all;
 }
@@ -596,7 +596,7 @@ button {
     100%;
   background-repeat: no-repeat;
   padding: 9px 34px 9px 10px;
-  font-weight: 900;
+  font-weight: 400;
   line-height: 1.25;
   outline: none;
   text-align: left;
@@ -643,7 +643,7 @@ button {
   color: var(--ink);
   background: transparent;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.28;
   text-align: left;
   word-break: keep-all;
@@ -804,7 +804,7 @@ button {
   }
 
   .maker {
-    font-size: 34px;
+    font-size: 26px;
   }
 
   .class-grid,
