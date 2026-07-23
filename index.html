@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XURLotto 자동선택시스템</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar" aria-label="페이지 이동">
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-controls="siteMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="quick-nav" id="siteMenu" aria-label="빠른 이동">
+        <a href="#home">HOME</a>
+        <a href="#draw">LOTTO</a>
+        <a href="#database">DB</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-panel" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">DESTINY 2 [ART] XURLOTTO PREDICTION HELPER</p>
+          <h1 id="hero-title">
+            <span>XURLotto</span>
+            <strong>자동선택시스템</strong>
+          </h1>
+          <p class="maker">JKVIDdev [ART]</p>
+        </div>
+        <a class="hero-hint" href="#draw" aria-label="추첨 페이지로 이동">
+          아래로 스크롤하기
+        </a>
+      </section>
+
+      <section class="draw-section section-panel" id="draw" aria-labelledby="draw-title">
+        <div class="section-heading">
+          <p class="eyebrow">weekly auto pick</p>
+          <h2 id="draw-title">쥴로또 자동 선택</h2>
+          <p class="section-copy">
+            경이 방어구는 직업별 2개씩, 경이 무기는 매의 달 제3퍽/제4퍽 각 1개와 무기 3개,
+            촉매제 2개를 자동으로 뽑습니다.
+          </p>
+          <p class="section-copy">
+            이번 주차의 쥴로또 응모는 <span id="deadlineDate">다가오는 토요일</span> 00시에 마감됩니다.
+          </p>
+        </div>
+
+        <div class="lotto-layout">
+          <aside class="control-panel" aria-label="추첨 설정">
+            <div class="mode-tabs" role="tablist" aria-label="추첨 종류">
+              <button class="mode-tab active" type="button" data-mode="all">전체</button>
+              <button class="mode-tab" type="button" data-mode="armor">방어구</button>
+              <button class="mode-tab" type="button" data-mode="weapon">무기</button>
+            </div>
+
+            <label class="nickname-field">
+              <span>참여자명</span>
+              <input id="playerName" type="text" placeholder="닉네임 입력" autocomplete="name" />
+            </label>
+
+            <div class="button-stack">
+              <button class="primary-button" id="drawButton" type="button">
+                <span aria-hidden="true">↻</span>
+                자동 선택
+              </button>
+              <button class="secondary-button" id="copyButton" type="button">
+                <span aria-hidden="true">⧉</span>
+                클립보드 저장
+              </button>
+            </div>
+
+            <p class="status-text" id="statusText" role="status" aria-live="polite">
+              자동 선택을 누르면 응모 결과가 생성됩니다. 생성된 결과를 클립보드에 저장한 뒤 디스코드 응모 채널에 그대로 붙여넣어 주세요.
+            </p>
+          </aside>
+
+          <div class="results-area" aria-live="polite">
+            <article class="result-group" data-result-group="armor">
+              <div class="result-header">
+                <span class="result-mark">A</span>
+                <div>
+                  <h3>경이 방어구 쥴로또</h3>
+                  <p>헌터 2개 / 타이탄 2개 / 워록 2개</p>
+                </div>
+              </div>
+              <div class="class-grid">
+                <div class="pick-column">
+                  <h4>헌터</h4>
+                  <ol id="hunterResults" class="pick-list"></ol>
+                </div>
+                <div class="pick-column">
+                  <h4>타이탄</h4>
+                  <ol id="titanResults" class="pick-list"></ol>
+                </div>
+                <div class="pick-column">
+                  <h4>워록</h4>
+                  <ol id="warlockResults" class="pick-list"></ol>
+                </div>
+              </div>
+            </article>
+
+            <article class="result-group" data-result-group="weapon">
+              <div class="result-header">
+                <span class="result-mark">W</span>
+                <div>
+                  <h3>경이 무기 쥴로또</h3>
+                  <p>매의 달 제3퍽 1개 / 매의 달 제4퍽 1개 / 경이 무기 3개 / 촉매제 2개</p>
+                </div>
+              </div>
+              <div class="weapon-grid">
+                <div class="pick-column">
+                  <h4>매의 달 제3퍽</h4>
+                  <ol id="hawkmoonResults" class="pick-list"></ol>
+                </div>
+                <div class="pick-column">
+                  <h4>매의 달 제4퍽</h4>
+                  <ol id="hawkmoonGripResults" class="pick-list"></ol>
+                </div>
+                <div class="pick-column">
+                  <h4>경이 무기</h4>
+                  <ol id="weaponResults" class="pick-list"></ol>
+                </div>
+                <div class="pick-column">
+                  <h4>촉매제</h4>
+                  <ol id="catalystResults" class="pick-list"></ol>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="database-section section-panel" id="database" aria-labelledby="database-title">
+        <div class="section-heading">
+          <p class="eyebrow">local item pool</p>
+          <h2 id="database-title">후보 데이터베이스 미리보기</h2>
+          <p class="section-copy">쥴이 가져올 수 있는 장비들의 데이터베이스 항목입니다.</p>
+        </div>
+        <div class="database-grid" id="databaseGrid"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
