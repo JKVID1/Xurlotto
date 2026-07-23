@@ -240,8 +240,14 @@ button {
 }
 
 .draw-section {
+  z-index: 2;
+  overflow: visible;
   min-height: auto;
   padding-top: clamp(24px, 4vw, 42px);
+}
+
+.draw-section:has(.pick-picker.open) {
+  z-index: 60;
 }
 
 .hero-hint {
@@ -657,6 +663,7 @@ button {
 }
 
 .database-section {
+  z-index: 1;
   min-height: auto;
 }
 
