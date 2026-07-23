@@ -252,14 +252,18 @@ button {
 
 .hero-hint {
   position: absolute;
-  left: 50%;
+  left: 0;
+  right: 0;
   bottom: clamp(26px, 4vw, 44px);
   z-index: 3;
-  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  margin: 0 auto;
   color: var(--muted);
   text-decoration: none;
   font-size: 13px;
   font-weight: 800;
+  text-align: center;
   white-space: nowrap;
 }
 
