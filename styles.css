@@ -235,11 +235,6 @@ button {
 }
 
 .draw-section,
-database-section {
-  padding: clamp(94px, 11vw, 140px) clamp(18px, 5vw, 72px) clamp(64px, 8vw, 96px);
-}
-
-.draw-section,
 .database-section {
   padding: clamp(94px, 11vw, 140px) clamp(18px, 5vw, 72px) clamp(64px, 8vw, 96px);
 }
