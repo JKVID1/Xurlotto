@@ -235,6 +235,11 @@ button {
 }
 
 .draw-section,
+database-section {
+  padding: clamp(94px, 11vw, 140px) clamp(18px, 5vw, 72px) clamp(64px, 8vw, 96px);
+}
+
+.draw-section,
 .database-section {
   padding: clamp(94px, 11vw, 140px) clamp(18px, 5vw, 72px) clamp(64px, 8vw, 96px);
 }
@@ -450,11 +455,18 @@ button {
 .results-area {
   display: grid;
   gap: 20px;
+  overflow: visible;
 }
 
 .result-group {
+  position: relative;
+  z-index: 1;
   padding: clamp(18px, 3vw, 28px);
   border-radius: 8px;
+}
+
+.result-group.picker-open {
+  z-index: 40;
 }
 
 .result-header {
@@ -505,11 +517,17 @@ button {
 }
 
 .pick-column {
+  position: relative;
+  z-index: 1;
   min-width: 0;
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.58);
+}
+
+.pick-column.picker-open {
+  z-index: 45;
 }
 
 .pick-column h4 {
