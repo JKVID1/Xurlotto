@@ -316,6 +316,7 @@ button {
 
 .draw-section .section-heading h2 {
   font-size: clamp(36px, 5.2vw, 68px);
+  font-weight: 750;
 }
 
 .section-copy {
@@ -425,7 +426,7 @@ button {
   justify-content: center;
   gap: 9px;
   border-radius: 6px;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .primary-button {
