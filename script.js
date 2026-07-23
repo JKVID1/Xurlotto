@@ -406,6 +406,7 @@ function renderEditableList(target, items, databaseKey, stateRoot, stateKey, lab
 
         closePickers();
         picker.classList.toggle("open", shouldOpen);
+        setPickerLayer(picker, shouldOpen);
         button.setAttribute("aria-expanded", String(shouldOpen));
       });
 
@@ -417,10 +418,22 @@ function renderEditableList(target, items, databaseKey, stateRoot, stateKey, lab
 }
 
 function closePickers() {
+  document.querySelectorAll(".picker-open").forEach((layer) => {
+    layer.classList.remove("picker-open");
+  });
+
   document.querySelectorAll(".pick-picker.open").forEach((picker) => {
     picker.classList.remove("open");
     picker.querySelector(".pick-choice")?.setAttribute("aria-expanded", "false");
   });
+}
+
+function setPickerLayer(picker, shouldOpen) {
+  const column = picker.closest(".pick-column");
+  const group = picker.closest(".result-group");
+
+  column?.classList.toggle("picker-open", shouldOpen);
+  group?.classList.toggle("picker-open", shouldOpen);
 }
 
 function renderResults() {
